@@ -27,16 +27,15 @@ var MyBase = module.exports = generators.NamedBase.extend({
 
     // Copy the right template based on the type
     appTemplate: function (options) {
-        var valid = this._checkOptions();
-        if (!valid) {
+        if (!this._areOptionsValid()) {
             return false;
         }
 
         var templateSrc = options['type'] + '.js',
             testSrc = options['type'] + '.spec.js',
             fullPath = 'src/index.html',
-            templateDest = this._makeDest(options['type']),
-            testDest = 'src/' + this._makeDest(options['type'], true) + '.spec.js',
+            templateDest = this._destinationPath(options['type']),
+            testDest = 'src/' + this._destinationPath(options['type'], true) + '.spec.js',
             typedTemplateDest = 'src/' + templateDest + '.js';
 
         var templateData = {
@@ -51,13 +50,12 @@ var MyBase = module.exports = generators.NamedBase.extend({
 
     // Add styles
     _addStyles: function () {
-        var valid = this._checkOptions();
-        if (!valid) {
+        if (!this._areOptionsValid()) {
             return false;
         }
         var templateSrc = 'style.sass',
             fullPath = 'src/index.html',
-            templateDest = this._makeDest('style'), // Create the destination path
+            templateDest = this._destinationPath('style'), // Create the destination path
             typedTemplateDest = 'src/' + templateDest + '.sass';
 
         this.template(templateSrc, typedTemplateDest); // Create file
@@ -65,12 +63,11 @@ var MyBase = module.exports = generators.NamedBase.extend({
 
     // Adds partials
     _addPartials: function () {
-        var valid = this._checkOptions();
-        if (!valid) {
+        if (!this._areOptionsValid()) {
             return false;
         }
 
-        var templateDest = this._makeDest('partial'),
+        var templateDest = this._destinationPath('partial'),
             templateSrc = 'partial.html',
             typedTemplateDest = 'src/' + templateDest + '.html';
 
@@ -78,7 +75,7 @@ var MyBase = module.exports = generators.NamedBase.extend({
     },
 
     // Create the file path to copy the template to and to insert in the index.html file
-    _makeDest: function (taskType, testFile) {
+    _destinationPath: function (taskType, testFile) {
         testFile = testFile || false;
         var destType = (typeof this.options['component'] !== 'undefined') ? 'app/components' : 'app',
             filename = this._getFilename(taskType),
@@ -101,7 +98,7 @@ var MyBase = module.exports = generators.NamedBase.extend({
     },
 
     // Validate options
-    _checkOptions: function () {
+    _areOptionsValid: function () {
         var valid = true;
         if (typeof this.options['bundle'] !== 'undefined') {
             if (typeof this.options['bundle'] === 'boolean') {
