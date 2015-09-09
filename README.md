@@ -175,4 +175,4 @@ Please take a look at them.
   ```
   
   Produces 
->src/app/user/partials/user.html
+>src/app/user/user.html
