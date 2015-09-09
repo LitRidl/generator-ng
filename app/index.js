@@ -4,7 +4,7 @@ var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 var chalk = require('chalk');
 
-var GulpAngularSubtaskGenerator = yeoman.generators.Base.extend({
+var NgGenerator = yeoman.generators.Base.extend({
     initializing: function () {
         this.pkg = require('../package.json');
     },
@@ -26,4 +26,4 @@ var GulpAngularSubtaskGenerator = yeoman.generators.Base.extend({
     }
 });
 
-module.exports = GulpAngularSubtaskGenerator;
+module.exports = NgGenerator;

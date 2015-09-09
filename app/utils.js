@@ -7,8 +7,6 @@ function escapeRegExp(str) {
 }
 
 function rewrite(args) {
-    /* jshint -W044 */
-    // check if splicable is already in the body text
     var re = new RegExp(args.splicable.map(function (line) {
         return '\s*' + escapeRegExp(line);
     }).join('\n'));
@@ -47,7 +45,7 @@ function rewriteFile(args) {
 function appName(self) {
     var counter = 0,
         suffix = self.options['app-suffix'];
-    // Have to check this because of generator bug #386
+
     process.argv.forEach(function (val) {
         if (val.indexOf('--app-suffix') > -1) {
             counter++;

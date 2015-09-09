@@ -83,7 +83,7 @@ var MyBase = module.exports = generators.NamedBase.extend({
             templateDest = destType + '/' + bundle + '/' + filename;
 
         if (typeof this.options['dest'] !== 'undefined') {
-            templateDest = this._prepareDest(this.options['dest']) + '/' + filename;
+            templateDest = this._prepareDestination(this.options['dest']) + '/' + filename;
         }
 
         return templateDest;
@@ -116,7 +116,7 @@ var MyBase = module.exports = generators.NamedBase.extend({
     },
 
     // Prepare the destination string so we can control it.
-    _prepareDest: function (dest) {
+    _prepareDestination: function (dest) {
         if (dest.charAt(dest.length - 1) == '/') {
             dest = dest.slice(0, -1);
         } // Removes / from the end of the destination
