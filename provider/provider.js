@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * @ngdoc service
  * @name <%= scriptAppName %>.<%= scriptClassName %>
@@ -8,21 +6,24 @@
  * Provider in the <%= scriptAppName %>.
  */
 angular.module('<%= scriptAppName %>')
-    .provider('<%= scriptClassName %>', function () {
+    .provider('<%= scriptClassName %>', () => {
         // Private variables
-        var salutation = 'Hello';
+        const salutation = 'Hello';
+
         // Private constructor
         function Greeter() {
-            this.greet = function () {
+            this.greet = () => {
                 return salutation;
             };
         }
+
         // Public API for configuration
-        this.setSalutation = function (s) {
+        this.setSalutation = (s) => {
             salutation = s;
         };
+
         // Method for instantiating
-        this.$get = function () {
+        this.$get = () => {
             return new Greeter();
         };
     });

@@ -5,7 +5,7 @@ module.exports = ScriptBase.extend({
         ScriptBase.apply(this, arguments);
         this.option('service-value', {
             desc: 'Set a value for the value / constant service',
-            defaults: 42,
+            defaults: 0,
         }); // This method adds support for a `--service-value` flag
     },
 

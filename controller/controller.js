@@ -1,4 +1,3 @@
-'use strict';
 /**
  * @ngdoc function
  * @name <%= scriptAppName %>.controller:<%= scriptClassName %>Ctrl
@@ -7,10 +6,10 @@
  * Controller of the <%= scriptAppName %>
  */
 angular.module('<%= scriptAppName %>')
-    .controller('<%= scriptClassName %>Ctrl', function ($scope) {
+    .controller('<%= scriptClassName %>Ctrl', ($scope) => {
         $scope.awesomeThings = [
-            'HTML5 Boilerplate',
+            'HTML5',
             'AngularJS',
-            'Karma'
+            'Karma',
         ];
     });

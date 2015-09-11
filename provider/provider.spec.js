@@ -7,5 +7,4 @@ describe('Provider: <%= scriptClassName %>', function() {
     it('should say hello', function() {
         expect( <%= scriptClassName %> .greet()).toEqual('Hello');
     });
-
 });
