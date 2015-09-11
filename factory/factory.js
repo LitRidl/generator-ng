@@ -1,4 +1,3 @@
-'use strict';
 /**
  * @ngdoc service
  * @name <%= scriptAppName %>.<%= scriptClassName %>
@@ -7,14 +6,15 @@
  * Factory in the <%= scriptAppName %>.
  */
 angular.module('<%= scriptAppName %>')
-    .factory('<%= scriptClassName %>Factory', function () {
+    .factory('<%= scriptClassName %>Factory', () => {
         // Service logic
         // ...
-        var meaningOfLife = 42;
+        const meaningOfLife = 42;
+
         // Public API here
         return {
-            someMethod: function () {
+            someMethod: () => {
                 return meaningOfLife;
-            }
+            },
         };
     });

@@ -1,4 +1,3 @@
-'use strict';
 /**
  * @ngdoc directive
  * @name <%= scriptAppName %>.directive:<%= scriptClassName %>
@@ -6,12 +5,12 @@
  * # <%= scriptClassName %>
  */
 angular.module('<%= scriptAppName %>')
-    .directive('<%= scriptClassName %>', function () {
+    .directive('<%= scriptClassName %>', () => {
         return {
             template: '<div></div>',
             restrict: 'E',
-            link: function (scope, element, attrs) {
+            link: (scope, element, attrs) => {
                 element.text('this is the <%= scriptClassName %> directive');
-            }
+            },
         };
     });

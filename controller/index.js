@@ -3,7 +3,6 @@ var ScriptBase = require('../app/script-base.js');
 module.exports = ScriptBase.extend({
     constructor: function () {
         ScriptBase.apply(this, arguments);
-        this._addMoreOptions();
     },
 
     exec: function () {
@@ -11,8 +10,7 @@ module.exports = ScriptBase.extend({
             this.name = this.name.slice(0, -4);
         }
         this.appTemplate({
-            type: 'controller'
-            //skipTest: true
+            type: 'controller',
         });
-    }
+    },
 });

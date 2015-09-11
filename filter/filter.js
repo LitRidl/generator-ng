@@ -1,4 +1,3 @@
-'use strict';
 /**
  * @ngdoc filter
  * @name <%= scriptAppName %>.filter:<%= scriptClassName %>
@@ -8,8 +7,8 @@
  * Filter in the <%= scriptAppName %>.
  */
 angular.module('<%= scriptAppName %>')
-    .filter('<%= scriptClassName %>', function () {
-        return function (input) {
+    .filter('<%= scriptClassName %>', () => {
+        return (input) => {
             return '<%= scriptClassName %> filter: ' + input;
         };
     });
